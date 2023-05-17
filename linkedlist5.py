@@ -1,3 +1,4 @@
+import math
 class Node:
     def __init__(self,data):
         self.__data=data
@@ -27,8 +28,6 @@ class LinkedList:
         return self.__tail
     
     def add(self,data):
-        global z
-        z+=1
         #Remove pass and copy the code you had written to add an element.
         new_node=Node(data)
         if(self.__head is None):
@@ -108,27 +107,31 @@ class LinkedList:
         msg=" ".join(msg)
         msg="Linkedlist data(Head to Tail): "+ msg
         return(msg)
-    
-def middle_element():
-    m=z//2
-    temp=list1.get_head()
-    k=0
-    while(temp):
-        if(k==m):
-            print(temp.get_data())
-            break
-        temp=temp.get_next()
-        k+=1
+        
+def remove_the_duplicate_elements():
+    temp_i=list1.get_head()
+    while(temp_i):
+        temp_j=list1.get_head()
+        c=0
+        while(temp_j):
+            if(temp_i.get_data()==temp_j.get_data()):
+                c+=1
+                if(c>1):
+                    list1.delete(temp_j.get_data())
+            temp_j=temp_j.get_next()
+        temp_i=temp_i.get_next()
+        
+        
+            
     
 
 
-#global z
-z=0
 list1=LinkedList()
-list1.add(4)
+list1.add(8)
 list1.add(2)
-list1.add(32)
-list1.add(245)
-list1.add(77)
-middle_element()
-#print(z)
+list1.add(2)
+list1.add(2)
+list1.add(8)
+list1.add(1)
+remove_the_duplicate_elements()
+print(list1)
