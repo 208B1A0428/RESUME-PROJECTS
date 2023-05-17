@@ -1,3 +1,4 @@
+import math
 class Node:
     def __init__(self,data):
         self.__data=data
@@ -110,7 +111,8 @@ class LinkedList:
         return(msg)
     
 def middle_element():
-    m=z//2
+    m=z/2
+    m=math.ceil(m)
     temp=list1.get_head()
     k=0
     while(temp):
@@ -130,5 +132,6 @@ list1.add(2)
 list1.add(32)
 list1.add(245)
 list1.add(77)
+list1.add(342)
 middle_element()
 #print(z)
