@@ -27,7 +27,8 @@ class LinkedList:
         return self.__tail
     
     def add(self,data):
-        
+        global z
+        z+=1
         #Remove pass and copy the code you had written to add an element.
         new_node=Node(data)
         if(self.__head is None):
@@ -107,17 +108,27 @@ class LinkedList:
         msg=" ".join(msg)
         msg="Linkedlist data(Head to Tail): "+ msg
         return(msg)
+    
+def middle_element():
+    m=z//2
+    temp=list1.get_head()
+    k=0
+    while(temp):
+        if(k==m):
+            print(temp.get_data())
+            break
+        temp=temp.get_next()
+        k+=1
+    
 
-#Add all the required element(s)
-#Search for the required node
+
+#global z
+z=0
 list1=LinkedList()
 list1.add(4)
 list1.add(2)
 list1.add(32)
 list1.add(245)
 list1.add(77)
-print(list1)
-list1.insert(888,None)
-print(list1)
-list1.delete(77)
-print(list1)
+middle_element()
+#print(z)
